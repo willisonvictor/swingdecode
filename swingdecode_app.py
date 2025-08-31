@@ -32,9 +32,9 @@ streamlit run swingdecode_app.py
 
 Notes
 -----
-- This is an MVP focused on clarity over completeness.
-- Works best with 3–6s clips and a stable camera.
-- Uses CPU-only models; processing may take ~a short while for longer clips.
+# This is an MVP focused on clarity over completeness.
+# Works best with 3–6s clips and a stable camera.
+# Uses CPU-only models; processing may take ~a short while for longer clips.
 """
 
 import os
