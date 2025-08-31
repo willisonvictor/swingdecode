@@ -270,17 +270,12 @@ try:
 except Exception:
     _OPENAI_OK = False
 
-COACH_PROMPT = (
-    "You are a golf swing coach. Given swing metrics, write a concise, "
-    "encouraging breakdown (max 120 words) with:
-"
-    "- 1 sentence on what's good
-"
-    "- 2 specific improvement points tied to the metrics
-"
-    "- 1 drill suggestion name with 1-line instruction
-"
-    "Avoid technical jargon. Be positive and practical."
+COACH_PROMPT = """You are a golf swing coach. Given swing metrics, write a concise, encouraging breakdown (max 120 words) that includes:
+- 1 sentence on what's good
+- 2 specific improvement points tied to the metrics
+- 1 drill suggestion name with a 1-line instruction
+Avoid technical jargon. Be positive and practical."""
+
 )
 
 def coach_summary(metrics: Metrics) -> str:
