@@ -1,5 +1,19 @@
 # SwingDecode - Streamlit MVP
 # Clean ASCII header to avoid Unicode parsing issues.
+# 
+# Features:
+# - Extracts frames with OpenCV.
+# - Runs MediaPipe Pose for body landmarks.
+# - Finds rough key frames: address, top, impact, finish.
+# - Computes 3 metrics: tempo ratio, hip sway (FO), head movement (vertical & lateral).
+# - Draws overlays and returns an annotated video.
+# - Summarizes with an LLM (OpenAI) into a short coaching note.
+#
+# Quick start:
+# 1) Create a venv (optional) and install deps:
+#    pip install streamlit mediapipe opencv-python-headless numpy scipy openai pillow
+# 2) Set your OpenAI key:
+#    export OPENAI_API_KEY=YOUR_KEY_HERE
 
 import os
 import io
@@ -12,21 +26,6 @@ import cv2
 import mediapipe as mp
 import streamlit as st
 from scipy.signal import savgol_filter
-
-- Extracts frames with OpenCV.
-- Runs MediaPipe Pose for body landmarks.
-- Finds rough key frames: address, top, impact, finish.
-- Computes 3 metrics: tempo ratio, hip sway (FO), head movement (vertical & lateral).
-- Draws overlays and returns an annotated video.
-- Summarizes with an LLM (OpenAI) into a short coaching note.
-
-Quick start
------------
-# 1) Create a venv (optional) and install deps
-pip install streamlit mediapipe opencv-python-headless numpy scipy openai moviepy ffmpeg-python pillow
-
-# 2) Set your OpenAI key
-export OPENAI_API_KEY=YOUR_KEY_HERE  # or set in .env
 
 # 3) Run app
 streamlit run swingdecode_app.py
