@@ -1,8 +1,18 @@
-"""
-"""
-SwingDecode — Streamlit MVP
-Single-file Streamlit app that:
-- Accepts a golf swing video upload (MP4/MOV).
+# SwingDecode - Streamlit MVP
+# Clean ASCII header to avoid Unicode parsing issues.
+
+import os
+import io
+import tempfile
+from dataclasses import dataclass
+from typing import List, Dict, Tuple, Optional
+
+import numpy as np
+import cv2
+import mediapipe as mp
+import streamlit as st
+from scipy.signal import savgol_filter
+
 - Extracts frames with OpenCV.
 - Runs MediaPipe Pose for body landmarks.
 - Finds rough key frames: address, top, impact, finish.
