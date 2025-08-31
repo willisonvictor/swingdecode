@@ -276,8 +276,6 @@ COACH_PROMPT = """You are a golf swing coach. Given swing metrics, write a conci
 - 1 drill suggestion name with a 1-line instruction
 Avoid technical jargon. Be positive and practical."""
 
-)
-
 def coach_summary(metrics: Metrics) -> str:
     if not _OPENAI_OK or not os.getenv("OPENAI_API_KEY"):
         return (
@@ -303,6 +301,7 @@ def coach_summary(metrics: Metrics) -> str:
         temperature=0.4,
     )
     return chat.choices[0].message.content.strip()
+
 
 
 # ----------------------------- Streamlit UI -----------------------------
