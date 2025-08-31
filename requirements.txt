@@ -1,6 +1,6 @@
 streamlit==1.32.2
 numpy==1.26.4
-opencv-python-headless==4.5.5.64
+opencv-python-headless==4.7.0.72
 mediapipe==0.10.14
 protobuf==3.20.3
 scipy==1.11.4
